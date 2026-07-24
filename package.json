@@ -1,0 +1,26 @@
+{
+  "name": "whatsapp-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "whats.js",
+  "scripts": {
+    "test": "node test/reply-quote.test.js && node test/send-quote-e2e.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@azure/msal-node": "^3.8.10",
+    "@hapi/boom": "^10.0.1",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "@supabase/supabase-js": "^2.110.7",
+    "@whiskeysockets/baileys": "^7.0.0-rc.9",
+    "express": "^5.2.1",
+    "googleapis": "^140.0.1",
+    "javascript-obfuscator": "^5.5.0",
+    "pino": "^10.3.1",
+    "qrcode": "^1.5.4",
+    "socket.io": "^4.8.3"
+  }
+}

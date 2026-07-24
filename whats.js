@@ -385,6 +385,11 @@ const CACHE_DIR = process.env.CACHE_DIR || './cache';
 const SCHEDULE_FILE = process.env.SCHEDULE_FILE || './scheduled.json';
 const CALL_BLOCK_FILE = process.env.CALL_BLOCK_FILE || './call_block.json';
 
+// Ensure mutable state dirs exist (handles ephemeral fs and mounted /data disks alike).
+for (const d of [SESSION_DIR, CACHE_DIR]) {
+  try { fs.mkdirSync(d, { recursive: true }); } catch {}
+}
+
 const app = express();
 const server = http.createServer(app);
 app.use(express.json({ limit: '2mb' }));

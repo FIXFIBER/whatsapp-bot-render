@@ -1,19 +1,16 @@
 # Render Blueprint for the WhatsApp bot (Baileys + Express + socket.io).
-# Deploy via Dashboard: New → Blueprint, or `render services create` (disk ignored on CLI; attach /data in dashboard).
+# Docker runtime pins Node 20 in the Dockerfile, so no CLI/manual env step is needed.
+# Deploy via Dashboard: New → Blueprint, or `render services create`.
 services:
   - type: web
     name: whatsapp-bot
-    runtime: node
+    runtime: docker
     repo: https://github.com/FIXFIBER/whatsapp-bot-render
     branch: main
     rootDirectory: .
-    buildCommand: npm install
-    startCommand: node whats.js
     healthCheckPath: /
     autoDeploy: true
     envVars:
-      - key: NODE_VERSION
-        value: "20"
       - key: DISABLE_TUNNEL      # bot auto-starts a Cloudflare tunnel locally; disable on Render
         value: "1"
       - key: SESSION_DIR         # persist WhatsApp auth on the attached disk

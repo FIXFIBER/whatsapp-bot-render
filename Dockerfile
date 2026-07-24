@@ -15,9 +15,7 @@ COPY . .
 # Render injects PORT; the bot reads process.env.PORT.
 EXPOSE 3001
 
-# WhatsApp session + cache live on the /data disk (see render.yaml disk).
-ENV SESSION_DIR=/data/session \
-    CACHE_DIR=/data/cache \
-    DISABLE_TUNNEL=1
+# Tunnel disabled on Render; session/cache default to ./session ./cache (writable).
+ENV DISABLE_TUNNEL=1
 
 CMD ["node", "whats.js"]

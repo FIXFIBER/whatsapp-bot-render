@@ -13,7 +13,7 @@ services:
     autoDeploy: true
     envVars:
       - key: NODE_VERSION
-        value: "18"
+        value: "20"
       - key: DISABLE_TUNNEL      # bot auto-starts a Cloudflare tunnel locally; disable on Render
         value: "1"
       - key: SESSION_DIR         # persist WhatsApp auth on the attached disk
